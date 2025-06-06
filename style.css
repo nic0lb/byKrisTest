@@ -25,7 +25,7 @@ main {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem; /* Adicionado padding para o conteúdo não colar nas bordas */
-  margin-bottom: 250px; /* Espaço para o carrinho fixo no rodapé */
+  margin-bottom: 350px; /* Espaço para o carrinho fixo no rodapé */
 }
 
 /* Estilo dos botões de produto */
