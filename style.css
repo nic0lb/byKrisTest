@@ -1,0 +1,239 @@
+/* Estilos globais */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  background: #4ac0de;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Layout principal */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem; /* Adicionado padding para o conteúdo não colar nas bordas */
+  margin-bottom: 250px; /* Espaço para o carrinho fixo no rodapé */
+}
+
+/* Estilo dos botões de produto */
+.produto button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #52c1a8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.produto button:hover {
+  background-color: #3aa08a;
+}
+
+/* Carrinho de Compras */
+.carrinho-container {
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Centraliza horizontalmente */
+  right: 0; /* Centraliza horizontalmente */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  width: 90%;
+  max-width: 500px; /* Limita a largura máxima para telas maiores */
+  max-height: 50vh;
+  overflow-y: auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+#carrinho {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+#carrinho li {
+  padding: 0.5rem;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+}
+
+#carrinho li span:first-child {
+  flex-grow: 1; /* Permite que o texto do item ocupe o espaço disponível */
+}
+
+#carrinho button {
+  margin-left: 5px;
+  background-color: #ddd;
+  color: #000;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer; /* Adicionado cursor pointer */
+}
+
+#carrinho button:hover {
+  background-color: #bbb;
+}
+
+#enviar {
+  width: 100%;
+  background-color: #25D366; /* Verde WhatsApp */
+  color: white;
+  padding: 1rem;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Adicionado transição */
+}
+
+#enviar:hover {
+  background-color: #1ebc59; /* Verde mais escuro no hover */
+}
+
+/* Abas de Categoria */
+.abas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.abas button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4AC0DE;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Adicionado transição */
+}
+
+.abas button.ativa {
+  background-color: #52C1A8;
+}
+
+/* Categorias de Produtos */
+.categoria {
+  display: none; /* Esconde todas as categorias por padrão */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsivo: 2 colunas em telas maiores, 1 em menores */
+  gap: 20px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.categoria.active {
+  display: grid; /* Mostra a categoria ativa */
+}
+
+.produto {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background: white; /* Adicionado fundo branco */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.produto img {
+  width: 100%;
+  height: auto;
+  max-height: 150px; /* Limita a altura das imagens do produto */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Responsividade do carrinho */
+@media (max-width: 400px) {
+  .carrinho-container {
+    width: 95%; /* Ajusta largura para telas muito pequenas */
+  }
+}
+
+/* Modal Personalizado */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed; /* Fixo na tela */
+  z-index: 1; /* Acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Habilita rolagem se necessário */
+  background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% do topo e centralizado */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Largura do modal */
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close-button {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content button {
+  background-color: #4AC0DE;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.modal-content button:hover {
+  background-color: #3aa08a;
+}

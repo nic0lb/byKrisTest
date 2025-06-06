@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monte seu Kit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Monte seu Kit By Kris</h1>
+  </header>
+
+  <main>
+    <!-- Abas de Categorias -->
+    <div class="abas">
+      <button onclick="mostrarCategoria('cartoes')">Cartões</button>
+      <button onclick="mostrarCategoria('caixas')">Caixas</button>
+      <button onclick="mostrarCategoria('variedades')">Variedades</button>
+    </div>
+
+    <!-- Produtos: Cartões -->
+    <div id="cartoes" class="categoria">
+      <div class="produto">
+        <img src="imagens/cartao-visita.png" alt="Cartão de Amor" loading="lazy" width="200" height="200">
+        <p>Cartão de Amor</p>
+        <button onclick="adicionar('Cartão de Amor', 3.00)">Adicionar</button>
+      </div>
+    </div>
+
+    <!-- Produtos: Caixas -->
+    <div id="caixas" class="categoria">
+      <div class="produto">
+        <img src="imagens/caixinha.webp" alt="Caixinha Personalizada" loading="lazy" width="200" height="200">
+        <p>Caixinha Personalizada</p>
+        <button onclick="adicionar('Caixinha Personalizada', 5.00)">Adicionar</button>
+      </div>
+      <div class="produto">
+        <img src="imagens/cartao-visita.png" alt="Outro Produto de Caixas" loading="lazy" width="200" height="200">
+        <p>Outro Produto de Caixas</p>
+        <button onclick="adicionar('Outro Produto de Caixas', 6.00)">Adicionar</button>
+      </div>
+      <div class="produto">
+        <img src="imagens/caixinha.webp" alt="Mais um Produto de Caixas" loading="lazy" width="200" height="200">
+        <p>Mais um Produto de Caixas</p>
+        <button onclick="adicionar('Mais um Produto de Caixas', 7.00)">Adicionar</button>
+      </div>
+    </div>
+    
+    <!-- Produtos: Variedades -->
+    <div id="variedades" class="categoria">
+      <div class="produto">
+        <img src="imagens/Folder.png" alt="Folder Promocional" loading="lazy" width="200" height="200">
+        <p>Folder Promocional</p>
+        <button onclick="adicionar('Folder Promocional', 2.50)">Adicionar</button>
+      </div>
+    </div>
+
+    <!-- Carrinho de Compras -->
+    <section class="carrinho-container">
+      <h2>Seu Kit</h2>
+      <ul id="carrinho"></ul>
+      <p>Total: R$<span id="total">0.00</span></p>
+      <button id="enviar" onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
+    </section>
+
+  </main>
+
+  <!-- Modal de Alerta -->
+  <div id="customAlert" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeAlert()">&times;</span>
+      <p id="alertMessage"></p>
+      <button onclick="closeAlert()">OK</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
